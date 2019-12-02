@@ -1,3 +1,4 @@
+
 body {
   background-image: url("image/brocollie.png");
 }
@@ -11,6 +12,7 @@ body {
 
 #loginbutton {
   margin-left: 50px;
+  float: right;
 }
 
 .mb {
@@ -154,4 +156,24 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+
+.header {
+  box-sizing: border-box;
+  background: lightgray;
+  text-align: center;
+  padding: 10px;
 }
+
+.mood {
+  width: 960px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.size {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navbar {
+  text-align: center; }

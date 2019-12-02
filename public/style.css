@@ -1,8 +1,12 @@
-
 body {
   background-image: url("image/brocollie.png");
 }
-
+.card-body{
+  height: 20%;
+}
+#cardimg{
+  height: 250px;
+}
 #header {
   font-family: "Calistoga", cursive;
   font-size: 50px;

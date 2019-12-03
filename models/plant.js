@@ -1,18 +1,18 @@
-var Sequelize = require("sequelize");
-
-var sequelize = require("../config/config.json");
-
-var Plant = sequelize.define("plant", {
-    latinName: Sequelize.STRING,
-    commonName: Sequelize.STRING,
-    medicinal: Sequelize.STRING,
-    knownHazards: Sequelize.STRING,
-    edibleUses: Sequelize.STRING,
-    usesNotes: Sequelize.STRING,
-    edibilityRating: Sequelize.INTEGER,
-    medicinalRating: Sequelize.INTEGER
-});
-
-Plant.sync();
-
-module.exports = Plant;
+module.exports = function (sequelize, DataTypes) {
+    var Plant = sequelize.define("filtered_data", {
+        "Latinname": {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
+        "Commonname": DataTypes.STRING,
+        "Medicinal": DataTypes.STRING,
+        "Knownhazards": DataTypes.STRING,
+        "Edibleuses": DataTypes.STRING,
+        "Usesnotes": DataTypes.STRING,
+        "EdibilityRating": DataTypes.INTEGER,
+        "MedicinalRating": DataTypes.INTEGER
+    }, {
+        timestamps: false
+    });
+    return Plant;
+};

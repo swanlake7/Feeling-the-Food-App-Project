@@ -30,11 +30,13 @@ function encodeImageFileAsURL(element) {
         urlSearchVar = reader.result.split(',')[1]
     }
     reader.readAsDataURL(file);
+    console.log(urlSearchVar);
 }
 
 //FacePlus
 
 var urlSearchVar = '';
+
 var faceplusKeywords = [];
 
 $("#search-button").on("click", function () {
@@ -46,25 +48,7 @@ $("#search-button").on("click", function () {
     </div>`
     $(".upload-button").append(spin);
 
-    //these will be used on the server...use
-    //dotenv to hide keys, we need to send 
-    //urlSearchVar with ajax to server
-    const settings = {
-        "method": "post",
-        "url": "https://api-us.faceplusplus.com/facepp/v3/detect",
-        "data": {
-            api_key: "RozOm7f1iC8JiGq5B0jQoDFuJnyOHXOa",
-            api_secret: "ABBfaMDDUUtfNHfK46gxeLd2bLU6H4_Q",
-            image_base64: `${urlSearchVar}`,
-            return_attributes: "gender,age,emotion,skinstatus",
-        }
-    }
-    //use an ajax get request to then make an axios 
-    //post request on the server side. Once the results from
-    //that post are made, handle the info, search
-    //our database, and return the results to 
-    //the client
-    $.ajax(settings).done(response => {
-        console.log(response);
+    $.post("/faceplus", { image: `${urlSearchVar}` }, function (data) {
+        console.log(data);
     })
 })

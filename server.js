@@ -6,11 +6,12 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ extended: true }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.static("public"));
 
 require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {

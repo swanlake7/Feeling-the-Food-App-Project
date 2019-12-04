@@ -9,7 +9,7 @@ body {
 .card-body{
   height: 20%;
 }
-#cardimg{
+#cardimg {
   height: 250px;
 }
 #header {
@@ -166,22 +166,39 @@ span.psw {
     width: 100%;
   }
 
-.header {
-  box-sizing: border-box;
+  .header {
+    box-sizing: border-box;
+    background: lightgray;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .mood {
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
+  .size {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    text-align: center;
+  }
+}
+.table {
   background: lightgray;
+}
+
+thead {
   text-align: center;
-  padding: 10px;
 }
 
-.mood {
-  width: 960px;
-  margin: 0 auto;
-  margin-top: 100px;
-}
-
-.size {
-  width: 100%;
-  margin: 0 auto;
+.search-container {
+  width: 400px;
+  margin: auto;
 }
 
 .navbar {
@@ -416,3 +433,4 @@ span.psw {
           width: 100%;
       }
   }
+

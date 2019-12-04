@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.static("public"));
 
 require("./routes/api-routes")(app);
+require('./routes/signup-routes')(app);
 require("./routes/html-routes")(app);
 
 db.sequelize.sync().then(() => {

@@ -1,157 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Feeling The Food</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Feeling The Food</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-</head>
+  <body>
+    <!-- <header id="header">Feeling the Food</header> -->
+    <button
+      id="loginbutton"
+      onclick="document.getElementById('id01').style.display='block'"
+      style="width:auto;"
+    >
+      Login
+    </button>
+    <div id="id01" class="modal">
+      <form
+        class="modal-content animate"
+        action="/action_page.php"
+        method="post"
+      >
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+        </div>
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required
+          />
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn"
+          >
+            Cancel
+          </button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
 
-<body>
-  <!-- <header id="header">Feeling the Food</header> -->
-  <button id='loginbutton' onclick="document.getElementById('id01').style.display='block'"
-    style="width:auto;">Login</button>
-  <div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php" method="post">
-      <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-          title="Close Modal">&times;</span>
-      </div>
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-        <button type="submit">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-      </div>
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-          class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-      </div>
-    </form>
-  </div>
-
-  <!-- devante's below -->
-  <div class="header">
-    <div class="row">
-      <div class="col">
-        <h2>Logo</h2>
-      </div>
-      <div class="col">
-        <h1><a id="header" href="index.html">Feeling the Food</a></h1>
-      </div>
-      <div class="col">
-        <!-- <button class="btn btn-primary">Sign Up</button>
+    <!-- devante's below -->
+    <div class="header">
+      <div class="row">
+        <div class="col">
+          <h2>Logo</h2>
+        </div>
+        <div class="col">
+          <h1><a id="header" href="index.html">Feeling the Food</a></h1>
+        </div>
+        <div class="col">
+          <!-- <button class="btn btn-primary">Sign Up</button>
         <button class="btn btn-primary">Login</button> -->
-      </div>
-    </div>
-  </div>
-  <!-- photo upload and search button -->
-  <div class="row">
-    <div class="col">
-      <h2>Uplod an image of your face showing how you feel right now
-        and we will suggest the plants you need!
-      </h2>
-    </div>
-    <div class="col upload-button">
-      <input type="file" id="real-file" hidden="hidden" />
-      <button type="button" class='btn btn-secondary' id="custom-button">Upload Photo</button>
-      <span id="custom-text">No file chosen, yet.</span><br /><br />
-
-      <button type="button" class='btn btn-secondary' id="search-button">Submit</button></div>
-    <div class="col"></div>
-  </div>
-
-  <div class="mood">
-    <div class="row">
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/sleep.jpeg" class="card-img-top size" alt="sleep" />
-          <div class="card-body">
-            <h5 class="card-title">Sleep</h5>
-            <p class="card-text">
-              Sleep is an essential part of a healthy life.
-            </p>
-            <a href="#" class="btn btn-primary">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/muscle_gain.jpg" class="card-img-top size" alt="muscle gain" />
-          <div class="card-body">
-            <h5 class="card-title">Muscle Gain</h5>
-            <p class="card-text">
-              Sleep is an essential part of a healthy life.
-            </p>
-            <a href="#" class="btn btn-primary">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/focus.jpeg" class="card-img-top size" alt="fish jumping to bowl" />
-          <div class="card-body">
-            <h5 class="card-title">Focus</h5>
-            <p class="card-text">
-              Sleep is an essential part of a healthy life.
-            </p>
-            <a href="#" class="btn btn-primary">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/energy.jpeg" class="card-img-top size" alt="energy picture" />
-          <div class="card-body">
-            <h5 class="card-title">Energy</h5>
-            <p class="card-text">
-              Sleep is an essential part of a healthy life.
-            </p>
-            <a href="#" class="btn btn-primary">Search</a>
-          </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="search-container">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Input your mood"
+          aria-label="Mood"
+          aria-describedby="search"
+          id="searchInput"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="search">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mood">
+      <div class="row">
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/sleep.jpeg"
+              class="card-img-top size"
+              alt="sleep"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sleep</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="sleep">Search</a>
+            </div>
+          </div>
+        </div>
 
-  <div id="results">
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/muscle_gain.jpg"
+              class="card-img-top size"
+              alt="muscle gain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muscle Gain</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="muscle">Search</a>
+            </div>
+          </div>
+        </div>
 
-  </div>
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/focus.jpeg"
+              class="card-img-top size"
+              alt="fish jumping to bowl"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Focus</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="focus">Search</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/energy.jpeg"
+              class="card-img-top size"
+              alt="energy picture"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Energy</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="energy">Search</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="footer">
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-      <p>Copyright Dream Team Green 2019</p>
-    </nav>
-  </div>
+    <div id="results"></div>
 
+    <div class="footer">
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <p>Copyright Dream Team Green 2019</p>
+      </nav>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script type="text/javascript" src="food.js"></script>
-  <script type="text/javascript" src="/js/faceplus.js"></script>
-
-
-
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="food.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
+  </body>
 </html>

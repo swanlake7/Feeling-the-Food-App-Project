@@ -11,6 +11,7 @@ app.use(express.json({ extended: true }));
 app.use(express.static("public"));
 
 require("./routes/api-routes")(app);
+require('./routes/signup-routes')(app);
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {

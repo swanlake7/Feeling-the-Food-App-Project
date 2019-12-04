@@ -186,3 +186,12 @@ span.psw {
 .table {
   background: lightgray;
 }
+
+thead {
+  text-align: center;
+}
+
+.search-container {
+  width: 400px;
+  margin: auto;
+}

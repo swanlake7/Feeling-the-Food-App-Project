@@ -2,14 +2,31 @@ const db = require("../models");
 const Op = db.Sequelize.Op;
 
 module.exports = function(app) {
-  app.get("/api/pain", function(req, res) {
+  const sleep = ["sleep", "nervine", "narcotic", "hypnotic"];
+  const muscle = ["muscle", "nutritive", "lenitive", "antiphlogistic"];
+  const focus = ["focus", "stimulant", "alterative"];
+  const energy = ["energy", "tonic", "stimulant"];
+
+  const sleepConditions = sleep.join("|");
+  const muscleConditions = muscle.join("|");
+  const focusConditions = focus.join("|");
+  const energyConditions = energy.join("|");
+
+  // const query = {
+  //   medicinal: {
+  //     [Op.regexp]: medicinalConditions
+  //   }
+  // };
+
+  app.get("/api/mood/:medicinal", function(req, res) {
     console.log(db);
+    console.log(req.params.medicinal);
     db.filtered_data
       .findAll({
         limit: 5,
         where: {
           Medicinal: {
-            [Op.like]: "%analgesic%"
+            [Op.like]: `%${req.params.medicinal}%`
           }
         },
         order: [["EdibilityRating", "DESC"]]
@@ -26,7 +43,7 @@ module.exports = function(app) {
         limit: 5,
         where: {
           Medicinal: {
-            [Op.like]: "%sleep%"
+            [Op.regexp]: sleepConditions
           }
         },
         order: [["EdibilityRating", "DESC"]]
@@ -43,7 +60,7 @@ module.exports = function(app) {
         limit: 5,
         where: {
           Medicinal: {
-            [Op.like]: "%muscle%"
+            [Op.regexp]: muscleConditions
           }
         },
         order: [["EdibilityRating", "DESC"]]
@@ -60,7 +77,7 @@ module.exports = function(app) {
         limit: 5,
         where: {
           Medicinal: {
-            [Op.like]: "%stimulant%"
+            [Op.regexp]: focusConditions
           }
         },
         order: [["EdibilityRating", "DESC"]]
@@ -76,7 +93,7 @@ module.exports = function(app) {
         limit: 5,
         where: {
           Medicinal: {
-            [Op.like]: "%energy%"
+            [Op.regexp]: energyConditions
           }
         },
         order: [["EdibilityRating", "DESC"]]

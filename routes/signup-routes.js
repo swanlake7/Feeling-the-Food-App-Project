@@ -18,7 +18,6 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         console.log('hit')
         var inputemail = req.body.email;
-        var inputpw = bcrypt.hashSync(req.body.pw, 8);
         db.User.findOne({
             where: {
                 email: `${inputemail}`,

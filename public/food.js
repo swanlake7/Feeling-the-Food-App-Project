@@ -24,6 +24,7 @@ $(document).ready(function () {
 
 
   function logIn() {
+    event.preventDefault();
     var passw = $("#loginPw").val();
     var rem = $("#remLog").val();
     var un = $("#loginUserName").val();
@@ -71,10 +72,5 @@ $(document).ready(function () {
   function postUser(info) {
     $.post('/api/users', info).then(console.log("signup success!!")).then($("#sumodal").hide());
   }
-
-
-
-
-
 });
 

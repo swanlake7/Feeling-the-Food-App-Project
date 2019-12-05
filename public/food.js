@@ -32,12 +32,16 @@ $(document).ready(function () {
       'email': un,
       'pw': passw
     };
-    console.log(logInfo);
     getUser(logInfo);
   }
 
   function getUser(user) {
-    $.post('/login', user).then(console.log('login successful'))
+    $.post('/login', user).then(success => {
+      console.log("good to go!")
+      window.location.replace("/home.html");
+    }).catch(err => {
+      window.location.replace("/");
+    });
   };
 
   function signUpSubmit(event) {

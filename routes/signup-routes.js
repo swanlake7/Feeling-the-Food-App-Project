@@ -18,20 +18,20 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         console.log('hit')
         var inputemail = req.body.email;
+        console.log(req.body);
         db.User.findOne({
             where: {
-                email: `${inputemail}`,
+                email: inputemail,
             }
         }).then(user => {
             if (!user) {
-                res.redirect('/');
+                res.status(401).end();
             } else {
-                bcrypt.compare(req.body.pw, user.pw, function (err, result) {
-                    if (result == true) {
-                        res.redirect('/home');
+                bcrypt.compare(req.body.pw, user.pw, function (err, success) {
+                    if (success === true) {
+                        res.json("Success");
                     } else {
-                        res.send('Incorrect password');
-                        res.redirect('/');
+                        res.status(401).end();
                     }
                 })
             }

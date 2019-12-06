@@ -24,124 +24,6 @@
   </head>
   
 <body>
-
-  <!-- <header id="header">Feeling the Food</header> -->
-  <!-- login button on homepage -->
-  <div id="loginmodal">
-    <button id='loginbutton' onclick="document.getElementById('id01').style.display='block'"
-      style="width:auto;">Login</button>
-    <div id="id01" class="modal">
-      <form id="loginForm" class="modal-content animate">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-        </div>
-        <!-- modal login page form -->
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input id="loginUserName" type="text" placeholder="Enter Username" name="uname" required>
-          <label for="psw"><b>Password</b></label>
-          <input id="loginPw" type="password" placeholder="Enter Password" name="psw" required>
-          <!-- login button for actually logging in  -->
-          <button id="loginForReal" type="submit">Login</button>
-          <label>
-            <!-- button for remembering the user credential so don't need to login next time -->
-            <input id="remLog" type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-        <!-- cancel button for canceling loging -->
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'"
-            class="cancelbtn">Cancel</button>
-          <!-- button for user forgot the password and the link will send them email for resetting their password -->
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- devante's below -->
-  <div class="header">
-    <div class="row">
-      <div class="col">
-        <h2>Logo</h2>
-      </div>
-      <div class="col">
-        <h1><a id="header" href="index.html">Feeling the Food</a></h1>
-      </div>
-      <div class="col">
-        <!-- <button class="btn btn-primary">Sign Up</button>
-        <button class="btn btn-primary">Login</button> -->
-      </div>
-    </div>
-  </div>
-  <div class="search-container">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Input your mood" aria-label="Mood" aria-describedby="search"
-        id="searchInput" />
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button" id="search">
-          Submit
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="mood">
-    <div class="row">
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/sleep.jpeg" class="card-img-top size" alt="sleep" />
-          <div class="card-body">
-            <h5 class="card-title">Sleep</h5>
-            <p class="card-text">
-              Sleep is an essential part of a healthy life.
-            </p>
-            <a href="#" class="btn btn-primary" id="sleep">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/muscle_gain.jpg" class="card-img-top size" alt="muscle gain" />
-          <div class="card-body">
-            <h5 class="card-title">Muscle Gain</h5>
-            <p class="card-text">
-              Supporting your athletic endeavours with plant-based Supplement.
-            </p>
-            <a href="#" class="btn btn-primary" id="muscle">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/focus.jpeg" class="card-img-top size" alt="fish jumping to bowl" />
-          <div class="card-body">
-            <h5 class="card-title">Focus</h5>
-            <p class="card-text">
-              Optimize your mental focus.
-            </p>
-            <a href="#" class="btn btn-primary" id="focus">Search</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card text-center">
-          <img id="cardimg" src="./images/energy.jpeg" class="card-img-top size" alt="energy picture" />
-          <div class="card-body">
-            <h5 class="card-title">Energy</h5>
-            <p class="card-text">
-              These plant-based supplement will increase your energy.
-            </p>
-            <a href="#" class="btn btn-primary" id="energy">Search</a>
-          </div>
-
-    <!-- <header id="header">Feeling the Food</header> -->
-    <!-- login button on homepage -->
-
-    <!-- devante's below -->
     <div class="jumbotron">
       <div class="sign-in">
         <h1><a id="header" href="index.html">Feeling the Food</a></h1>
@@ -197,7 +79,7 @@
                       Remember me
                     </label>
                   </div>
-                  <!-- cancel button for canceling loging -->
+                  <!-- cancel button for canceling logging -->
                   <div class="container" style="background-color:#f1f1f1">
                     <button
                       type="button"
@@ -206,8 +88,6 @@
                     >
                       Cancel
                     </button>
-                    <!-- button for user forgot the password and the link will send them email for resetting their password -->
-                    <span class="psw">Forgot <a href="#">password?</a></span>
                   </div>
                 </form>
               </div>
@@ -262,17 +142,6 @@
                       name="psw-repeat"
                       required
                     />
-                    <!-- button for remembering user so that they don't need to login when starting to use the website as a user -->
-                    <label>
-                      <input
-                        id="checksu"
-                        type="checkbox"
-                        checked="checked"
-                        name="remember"
-                        style="margin-bottom:15px"
-                      />
-                      Remember me
-                    </label>
                     <!-- link to terms and policy -->
                     <p>
                       By creating an account you agree to our
@@ -306,13 +175,10 @@
     </div>
   </div>
 
-  <a href="/disclaimer.html">Legal Disclaimer, Copyright, Etc.</a>
-  <p></p>
-  <p><a href="">Disclaimer</a></p>
-
   <div class="footer">
-    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <nav class="navbar fixed-bottom navbar-light bg-light">
       <p>Copyright Dream Team Green 2019</p>
+      <a href="/disclaimer.html">Legal Disclaimer</a>
     </nav>
   </div>
 

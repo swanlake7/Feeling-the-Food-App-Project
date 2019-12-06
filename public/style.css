@@ -22,14 +22,13 @@ body {
 
 .main-header {
   background: hsla(0, 0%, 43%, 0.75);
-
+}
 .card-body {
   height: 20%;
 }
 
 #cardimg {
   height: 250px;
-
 }
 
 #header {
@@ -72,7 +71,8 @@ body {
 
 /* Full-width input fields */
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -168,7 +168,8 @@ span.psw {
   font-weight: bold;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
   color: red;
   cursor: pointer;
 }
@@ -263,13 +264,11 @@ input[type="password"] {
 }
 
 /* Add a background color when the inputs get focus */
-input[type="text"]:focus,
-input[type="password"]:focus {
-
 
 /* Full-width input fields */
 
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -280,8 +279,8 @@ input[type=text], input[type=password] {
 
 /* Add a background color when the inputs get focus */
 
-input[type=text]:focus, input[type=password]:focus {
-
+input[type="text"]:focus,
+input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -375,7 +374,7 @@ hr {
 /* Clear floats */
 
 button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -398,7 +397,8 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 
-.cancelbtn, .signupbtn {
+.cancelbtn,
+.signupbtn {
   float: left;
   width: 50%;
 }
@@ -459,13 +459,13 @@ hr {
   color: #f1f1f1;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
   color: #f44336;
   cursor: pointer;
 }
 
 /* Clear floats */
-
 
 .clearfix::after {
   content: "";
@@ -477,10 +477,6 @@ hr {
 @media screen and (max-width: 300px) {
   .cancelbtn,
   .signupbtn {
-
-
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
     width: 100%;
   }
 }
@@ -590,13 +586,12 @@ hr {
     width: 100%;
   }
 }
-=======
 /*  */
 
 /* Set a style for all buttons */
 
 .supbutton {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -619,7 +614,8 @@ hr {
 
 /* Float cancel and signup buttons and add an equal width */
 
-.cancelbtnsu, .signupbtn {
+.cancelbtnsu,
+.signupbtn {
   float: left;
   width: 50%;
 }
@@ -680,7 +676,8 @@ hr {
   color: #f1f1f1;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
   color: #f44336;
   cursor: pointer;
 }
@@ -696,7 +693,8 @@ hr {
 /* Change styles for cancel button and signup button on extra small screens */
 
 @media screen and (max-width: 300px) {
-  .cancelbtnsu, .signupbtn {
+  .cancelbtnsu,
+  .signupbtn {
     width: 100%;
   }
 }
@@ -720,6 +718,7 @@ i {
   background: white;
   width: 960px;
   margin: 0 auto;
+  margin-top: 30px;
   padding: 10px;
   opacity: 0.6;
   background-position: left top;
@@ -727,7 +726,6 @@ i {
   height: 250px;
   z-index: 99;
 }
-
 /* #rcorners1 {
   border-radius: 25px;
   background: gray;

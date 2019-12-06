@@ -1,13 +1,15 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Creating jQuery selectors to handle to buttons
   const sleep = $("#sleep");
   const muscle = $("#muscle");
   const focus = $("#focus");
   const energy = $("#energy");
   const search = $("#search");
+  // const inputsearch = $('#searchInput');
   // const find = $("#find");
 
   // Adding event listener for button click on desired feeling
+  // $(inputsearch).keyup(displayMood);
   $(sleep).on("click", displaySleep);
   $(muscle).on("click", displayMuscle);
   $(focus).on("click", displayFocus);
@@ -21,7 +23,7 @@ $(document).ready(function() {
       .trim();
     console.log("inside", value);
     event.preventDefault();
-    $.get(`/api/mood/${value}`, function(data) {
+    $.get(`/api/mood/${value}`, function (data) {
       console.log(data);
 
       $(".mood").empty();
@@ -56,7 +58,7 @@ $(document).ready(function() {
 
   function displaySleep(event) {
     event.preventDefault();
-    $.get("/api/sleep", function(data) {
+    $.get("/api/sleep", function (data) {
       console.log(data);
 
       $(".mood").empty();
@@ -91,7 +93,7 @@ $(document).ready(function() {
 
   function displayMuscle(event) {
     event.preventDefault();
-    $.get("/api/muscle", function(data) {
+    $.get("/api/muscle", function (data) {
       console.log(data);
 
       $(".mood").empty();
@@ -125,7 +127,7 @@ $(document).ready(function() {
   }
   function displayFocus(event) {
     event.preventDefault();
-    $.get("/api/focus", function(data) {
+    $.get("/api/focus", function (data) {
       console.log(data);
 
       $(".mood").empty();
@@ -159,7 +161,7 @@ $(document).ready(function() {
   }
   function displayEnergy(event) {
     event.preventDefault();
-    $.get("/api/energy", function(data) {
+    $.get("/api/energy", function (data) {
       console.log(data);
 
       $(".mood").empty();
@@ -193,7 +195,7 @@ $(document).ready(function() {
   }
   $("#table").hide();
   $("#table").bootstrapTable("hideLoading");
-  $("button").on("click", function() {
+  $("button").on("click", function () {
     $(".mood").empty();
     $("button").hide();
     $("#table").show();

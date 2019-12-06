@@ -22,7 +22,6 @@ $(document).ready(function () {
   //   }
   // }
 
-
   function logIn() {
     event.preventDefault();
     var passw = $("#loginPw").val();

@@ -20,4 +20,12 @@ module.exports = function (app) {
             res.json(err.message);
         });
     });
+    app.get("/disclaimer", function (req, res) {
+        res.sendFile(path.join(__dirname + "./public/disclaimer.html"));
+
+    });
+
+
+
+
 }

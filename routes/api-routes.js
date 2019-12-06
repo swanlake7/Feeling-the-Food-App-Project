@@ -29,7 +29,6 @@ module.exports = function(app) {
     console.log(req.params.medicinal);
     db.filtered_data
       .findAll({
-        limit: 5,
         where: {
           Medicinal: {
             [Op.like]: `%${req.params.medicinal}%`
@@ -46,7 +45,6 @@ module.exports = function(app) {
     console.log(db);
     db.filtered_data
       .findAll({
-        limit: 5,
         where: {
           Medicinal: {
             [Op.regexp]: sleepConditions
@@ -63,7 +61,6 @@ module.exports = function(app) {
     console.log(db);
     db.filtered_data
       .findAll({
-        limit: 5,
         where: {
           Medicinal: {
             [Op.regexp]: muscleConditions
@@ -80,7 +77,6 @@ module.exports = function(app) {
     console.log(db);
     db.filtered_data
       .findAll({
-        limit: 5,
         where: {
           Medicinal: {
             [Op.regexp]: focusConditions
@@ -96,7 +92,6 @@ module.exports = function(app) {
     console.log(db);
     db.filtered_data
       .findAll({
-        limit: 5,
         where: {
           Medicinal: {
             [Op.regexp]: energyConditions

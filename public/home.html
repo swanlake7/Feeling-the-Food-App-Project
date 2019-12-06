@@ -28,18 +28,18 @@
   </head>
 
   <body>
-    <div class="header">
+    <div class="main-header">
       <div class="row">
         <div class="col">
-          <h2>Logo</h2>
+          <img src="./images/logo1.png" id="logo" alt="logo" />
         </div>
-        <div class="col">
+        <div class="col text-center pt-3">
           <h1><a id="header" href="home.html">Feeling the Food</a></h1>
         </div>
         <div class="col"></div>
       </div>
     </div>
-    <div class="search-container">
+    <div class="search-container mt-3">
       <div class="input-group mb-3">
         <input
           type="text"
@@ -56,76 +56,78 @@
         </div>
       </div>
     </div>
-    <div class="mood">
+    <div class="mood mr-3 ml-3">
       <div class="row">
         <div class="col">
           <div class="card text-center">
-            <img
-              id="cardimg"
-              src="./images/sleep.jpeg"
-              class="card-img-top size"
-              alt="sleep"
-            />
+            <a href="#" id="energy">
+              <img
+                id="cardimg"
+                src="./images/sleep.jpeg"
+                class="card-img-top size"
+                alt="sleep"
+            /></a>
             <div class="card-body">
               <h5 class="card-title">Sleep</h5>
               <p class="card-text">
                 Sleep is an essential part of a healthy life.
               </p>
-              <a href="#" class="btn btn-primary" id="sleep">Search</a>
             </div>
           </div>
         </div>
 
         <div class="col">
           <div class="card text-center">
-            <img
-              id="cardimg"
-              src="./images/muscle_gain.jpg"
-              class="card-img-top size"
-              alt="muscle gain"
-            />
+            <a href="#" id="muscle"
+              ><img
+                id="cardimg"
+                src="./images/muscle_gain.jpg"
+                class="card-img-top size"
+                alt="muscle gain"
+            /></a>
             <div class="card-body">
               <h5 class="card-title">Muscle Gain</h5>
               <p class="card-text">
                 Sleep is an essential part of a healthy life.
               </p>
-              <a href="#" class="btn btn-primary" id="muscle">Search</a>
             </div>
           </div>
         </div>
 
         <div class="col">
           <div class="card text-center">
-            <img
-              id="cardimg"
-              src="./images/focus.jpeg"
-              class="card-img-top size"
-              alt="fish jumping to bowl"
-            />
+            <a href="#" id="focus"
+              ><img
+                id="cardimg"
+                src="./images/focus.jpeg"
+                class="card-img-top size"
+                alt="fish jumping to bowl"
+              />
+            </a>
             <div class="card-body">
               <h5 class="card-title">Focus</h5>
               <p class="card-text">
                 Sleep is an essential part of a healthy life.
               </p>
-              <a href="#" class="btn btn-primary" id="focus">Search</a>
             </div>
           </div>
         </div>
 
         <div class="col">
           <div class="card text-center">
-            <img
-              id="cardimg"
-              src="./images/energy.jpeg"
-              class="card-img-top size"
-              alt="energy picture"
-            />
+            <a href="#" id="energy">
+              <img
+                id="cardimg"
+                src="./images/energy.jpeg"
+                class="card-img-top size"
+                alt="energy picture"
+              />
+            </a>
             <div class="card-body">
               <h5 class="card-title">Energy</h5>
               <p class="card-text">
                 Sleep is an essential part of a healthy life.
               </p>
-              <a href="#" class="btn btn-primary" id="energy">Search</a>
             </div>
           </div>
         </div>
@@ -133,11 +135,11 @@
     </div>
 
     <div id="results">
-      <button class="btn btn-primary" id="find">Search</button>
       <table
         id="table"
         data-toggle="table"
-        data-height="460"
+        data-show-pagination-switch="true"
+        data-height="600"
         data-pagination="true"
       >
         <thead>

@@ -5,9 +5,7 @@ $(document).ready(function() {
   const focus = $("#focus");
   const energy = $("#energy");
   const search = $("#search");
-  let value = $("#searchInput")
-    .val()
-    .trim();
+  // const find = $("#find");
 
   // Adding event listener for button click on desired feeling
   $(sleep).on("click", displaySleep);
@@ -15,6 +13,7 @@ $(document).ready(function() {
   $(focus).on("click", displayFocus);
   $(energy).on("click", displayEnergy);
   $(search).on("click", displayMood);
+  // $(find).on("click", displayAll);
 
   function displayMood(event) {
     let value = $("#searchInput")
@@ -89,6 +88,7 @@ $(document).ready(function() {
       }
     });
   }
+
   function displayMuscle(event) {
     event.preventDefault();
     $.get("/api/muscle", function(data) {
@@ -191,4 +191,14 @@ $(document).ready(function() {
       }
     });
   }
+  $("#table").hide();
+  $("#table").bootstrapTable("hideLoading");
+  $("button").on("click", function() {
+    $(".mood").empty();
+    $("button").hide();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: "http://localhost:3000/api/all"
+    });
+  });
 });

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Feeling The Food</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="row">
+        <div class="col">
+          <h2>Logo</h2>
+        </div>
+        <div class="col">
+          <h1><a id="header" href="home.html">Feeling the Food</a></h1>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="search-container">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Input your mood"
+          aria-label="Mood"
+          aria-describedby="search"
+          id="searchInput"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="search">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mood">
+      <div class="row">
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/sleep.jpeg"
+              class="card-img-top size"
+              alt="sleep"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sleep</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="sleep">Search</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/muscle_gain.jpg"
+              class="card-img-top size"
+              alt="muscle gain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muscle Gain</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="muscle">Search</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/focus.jpeg"
+              class="card-img-top size"
+              alt="fish jumping to bowl"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Focus</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="focus">Search</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <img
+              id="cardimg"
+              src="./images/energy.jpeg"
+              class="card-img-top size"
+              alt="energy picture"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Energy</h5>
+              <p class="card-text">
+                Sleep is an essential part of a healthy life.
+              </p>
+              <a href="#" class="btn btn-primary" id="energy">Search</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="results">
+      <button class="btn btn-primary" id="find">Search</button>
+      <table
+        id="table"
+        data-toggle="table"
+        data-height="460"
+        data-pagination="true"
+      >
+        <thead>
+          <tr>
+            <th data-field="state" data-checkbox="true"></th>
+            <th data-field="Latinname">Latin Name</th>
+            <th data-field="Commonname">Common Name</th>
+            <th data-field="Knownhazards">Known Hazards</th>
+            <th data-field="Medicinal">Brief Description</th>
+            <th data-field="EdibilityRating">Edibility Rating</th>
+            <th data-field="MedicinalRating">Medicinal Rating</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="footer">
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <p>Copyright Dream Team Green 2019</p>
+      </nav>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="food.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
+  </body>
+</html>

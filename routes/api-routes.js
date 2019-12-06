@@ -18,6 +18,12 @@ module.exports = function(app) {
   //   }
   // };
 
+  app.get("/api/all", (req, res) => {
+    db.filtered_data.findAll({ limit: 30 }).then(function(results) {
+      res.json(results);
+    });
+  });
+
   app.get("/api/mood/:medicinal", function(req, res) {
     console.log(db);
     console.log(req.params.medicinal);

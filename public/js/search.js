@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   // Creating jQuery selectors to handle to buttons
   const sleep = $("#sleep");
@@ -6,193 +5,64 @@ $(document).ready(function() {
   const focus = $("#focus");
   const energy = $("#energy");
   const search = $("#search");
-  let value = $("#searchInput")
-    .val()
-    .trim();
 
   // Adding event listener for button click on desired feeling
-  $(sleep).on("click", displaySleep);
-  $(muscle).on("click", displayMuscle);
-  $(focus).on("click", displayFocus);
-  $(energy).on("click", displayEnergy);
-  $(search).on("click", displayMood);
+  $("#results").hide();
+  $("#table").hide();
+  $("#table").bootstrapTable("hideLoading");
+  sleep.on("click", function() {
+    $(".mood").empty();
+    $(".search-container").hide();
+    $("button").hide();
+    $("#results").show();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: "/api/sleep"
+    });
+  });
+  muscle.on("click", function() {
+    $(".mood").empty();
+    $(".search-container").hide();
+    $("button").hide();
+    $("#results").show();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: "/api/muscle"
+    });
+  });
+  focus.on("click", function() {
+    $(".mood").empty();
+    $("button").hide();
+    $(".search-container").hide();
+    $("#results").show();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: "/api/focus"
+    });
+  });
 
-  var token = "?token=" + localStorage.token
+  energy.on("click", function() {
+    $(".mood").empty();
+    $("button").hide();
+    $(".search-container").hide();
+    $("#results").show();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: "/api/energy"
+    });
+  });
 
-  function displayMood(event) {
+  search.on("click", function() {
     let value = $("#searchInput")
       .val()
       .trim();
-    console.log("inside", value);
-    event.preventDefault();
-    $.get(`/api/mood/${value}` + token, function (data) {
-      console.log(data);
-
-      $(".mood").empty();
-      // Create table to hold the top 10 plants for each category
-      for (let i = 0; i < data.length; i++) {
-        const exampleTable = $(`<table class="table">
-        <thead>
-      <tr>
-        <th scope='col'>Latin Name</th>
-        <th scope='col'>Common Name</th>
-        <th scope='col'>Known Hazards</th>
-        <th scope='col'>Medicinal</th>
-        <th scope='col'>Edibility Rating</th>
-        <th scope='col'>Medicinal Rating</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>${data[i].Latinname}</td>
-        <td>${data[i].Commonname}</td>
-        <td>${data[i].Knownhazards}</td>
-        <td>${data[i].Medicinal}
-        <td>${data[i].EdibilityRating}</td>
-        <td>${data[i].MedicinalRating}</td>
-      </tr>
-      </tbody>
-    </table>`);
-        $(".mood").append(exampleTable);
-      }
+    $(".mood").empty();
+    $("button").hide();
+    $(".search-container").hide();
+    $("#results").show();
+    $("#table").show();
+    $("#table").bootstrapTable("refresh", {
+      url: `/api/mood/${value}`
     });
-  }
-
-  function displaySleep(event) {
-    event.preventDefault();
-    $.get("/api/sleep" + token, function (data) {
-      console.log(data);
-
-      $(".mood").empty();
-      // Create table to hold the top 10 plants for each category
-      for (let i = 0; i < data.length; i++) {
-        const exampleTable = $(`<table class="table">
-        <thead>
-      <tr>
-        <th scope='col'>Latin Name</th>
-        <th scope='col'>Common Name</th>
-        <th scope='col'>Known Hazards</th>
-        <th scope='col'>Medicinal</th>
-        <th scope='col'>Edibility Rating</th>
-        <th scope='col'>Medicinal Rating</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>${data[i].Latinname}</td>
-        <td>${data[i].Commonname}</td>
-        <td>${data[i].Knownhazards}</td>
-        <td>${data[i].Medicinal}
-        <td>${data[i].EdibilityRating}</td>
-        <td>${data[i].MedicinalRating}</td>
-      </tr>
-      </tbody>
-    </table>`);
-        $(".mood").append(exampleTable);
-      }
-    });
-  }
-
-  function displayMuscle(event) {
-    event.preventDefault();
-    $.get("/api/muscle" + token, function (data) {
-      console.log(data);
-
-      $(".mood").empty();
-      // Create table to hold the top 10 plants for each category
-      for (let i = 0; i < data.length; i++) {
-        const exampleTable = $(`<table class="table">
-        <thead>
-      <tr>
-        <th scope='col'>Latin Name</th>
-        <th scope='col'>Common Name</th>
-        <th scope='col'>Known Hazards</th>
-        <th scope='col'>Medicinal</th>
-        <th scope='col'>Edibility Rating</th>
-        <th scope='col'>Medicinal Rating</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>${data[i].Latinname}</td>
-        <td>${data[i].Commonname}</td>
-        <td>${data[i].Knownhazards}</td>
-        <td>${data[i].Medicinal}
-        <td>${data[i].EdibilityRating}</td>
-        <td>${data[i].MedicinalRating}</td>
-      </tr>
-      </tbody>
-    </table>`);
-        $(".mood").append(exampleTable);
-      }
-    });
-  }
-  function displayFocus(event) {
-    event.preventDefault();
-    $.get("/api/focus" + token, function (data) {
-      console.log(data);
-
-      $(".mood").empty();
-      // Create table to hold the top 10 plants for each category
-      for (let i = 0; i < data.length; i++) {
-        const exampleTable = $(`<table class="table">
-        <thead>
-      <tr>
-        <th scope='col'>Latin Name</th>
-        <th scope='col'>Common Name</th>
-        <th scope='col'>Known Hazards</th>
-        <th scope='col'>Medicinal</th>
-        <th scope='col'>Edibility Rating</th>
-        <th scope='col'>Medicinal Rating</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>${data[i].Latinname}</td>
-        <td>${data[i].Commonname}</td>
-        <td>${data[i].Knownhazards}</td>
-        <td>${data[i].Medicinal}
-        <td>${data[i].EdibilityRating}</td>
-        <td>${data[i].MedicinalRating}</td>
-      </tr>
-      </tbody>
-    </table>`);
-        $(".mood").append(exampleTable);
-      }
-    });
-  }
-  function displayEnergy(event) {
-    event.preventDefault();
-    $.get("/api/energy" + token, function (data) {
-      console.log(data);
-
-      $(".mood").empty();
-      // Create table to hold the top 10 plants for each category
-      for (let i = 0; i < data.length; i++) {
-        const exampleTable = $(`<table class="table">
-        <thead>
-      <tr>
-        <th scope='col'>Latin Name</th>
-        <th scope='col'>Common Name</th>
-        <th scope='col'>Known Hazards</th>
-        <th scope='col'>Medicinal</th>
-        <th scope='col'>Edibility Rating</th>
-        <th scope='col'>Medicinal Rating</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>${data[i].Latinname}</td>
-        <td>${data[i].Commonname}</td>
-        <td>${data[i].Knownhazards}</td>
-        <td>${data[i].Medicinal}
-        <td>${data[i].EdibilityRating}</td>
-        <td>${data[i].MedicinalRating}</td>
-      </tr>
-      </tbody>
-    </table>`);
-        $(".mood").append(exampleTable);
-      }
-    });
-  }
+  });
 });

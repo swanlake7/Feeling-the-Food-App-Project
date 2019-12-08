@@ -1,4 +1,5 @@
-$(document).ready(function () {
+
+$(document).ready(function() {
   // Creating jQuery selectors to handle to buttons
   const sleep = $("#sleep");
   const muscle = $("#muscle");

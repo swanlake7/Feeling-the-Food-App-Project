@@ -2,8 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./models')
 const isAuthenticated = require('./middleware/isAuthenticated.js')
-
-
+const jwt = require('jsonwebtoken');
 const app = express();
 
 const PORT = process.env.PORT || 3000;

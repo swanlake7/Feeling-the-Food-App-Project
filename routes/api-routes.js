@@ -30,83 +30,102 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/api/sleep", function (req, res) {
-        console.log(db);
-        db.filtered_data
-            .findAll({
-                limit: 5,
-                where: {
-                    Medicinal: {
-                        [Op.regexp]: sleepConditions
-                    }
-                },
-                order: [["EdibilityRating", "DESC"]]
-            })
-            .then(function (results) {
-                res.json(results);
-            });
+  app.get("/api/all", (req, res) => {
+    db.filtered_data.findAll({ limit: 30 }).then(function(results) {
+      res.json(results);
     });
+  });
 
-    app.get("/api/muscle", function (req, res) {
-        console.log(db);
-        db.filtered_data
-            .findAll({
-                limit: 5,
-                where: {
-                    Medicinal: {
-                        [Op.regexp]: muscleConditions
-                    }
-                },
-                order: [["EdibilityRating", "DESC"]]
-            })
-            .then(function (results) {
-                res.json(results);
-            });
-    });
+  app.get("/api/mood/:medicinal", function(req, res) {
+    console.log(db);
+    console.log(req.params.medicinal);
+    db.filtered_data
+      .findAll({
+        where: {
+          Medicinal: {
+            [Op.like]: `%${req.params.medicinal}%`
+          }
+        },
+        order: [["EdibilityRating", "DESC"]]
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
 
-    app.get("/api/focus", function (req, res) {
-        console.log(db);
-        db.filtered_data
-            .findAll({
-                limit: 5,
-                where: {
-                    Medicinal: {
-                        [Op.regexp]: focusConditions
-                    }
-                },
-                order: [["EdibilityRating", "DESC"]]
-            })
-            .then(function (results) {
-                res.json(results);
-            });
-    });
-    app.get("/api/energy", function (req, res) {
-        console.log(db);
-        db.filtered_data
-            .findAll({
-                limit: 5,
-                where: {
-                    Medicinal: {
-                        [Op.regexp]: energyConditions
-                    }
-                },
-                order: [["EdibilityRating", "DESC"]]
-            })
-            .then(function (results) {
-                res.json(results);
-            });
-    });
+  app.get("/api/sleep", function(req, res) {
+    console.log(db);
+    db.filtered_data
+      .findAll({
+        where: {
+          Medicinal: {
+            [Op.regexp]: sleepConditions
+          }
+        },
+        order: [["EdibilityRating", "DESC"]]
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
 
-    // Search by common name
-    app.get("/api/pain/:Commonname", function (req, res) {
-        db.filtered_data
-            .findOne({
-                where: {
-                    Commonname: req.params.Commonname
-                }
-            })
-            .then(function (results) {
-                res.json(results);
-            });
-    });
+  app.get("/api/muscle", function(req, res) {
+    console.log(db);
+    db.filtered_data
+      .findAll({
+        where: {
+          Medicinal: {
+            [Op.regexp]: muscleConditions
+          }
+        },
+        order: [["EdibilityRating", "DESC"]]
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
+
+  app.get("/api/focus", function(req, res) {
+    console.log(db);
+    db.filtered_data
+      .findAll({
+        where: {
+          Medicinal: {
+            [Op.regexp]: focusConditions
+          }
+        },
+        order: [["EdibilityRating", "DESC"]]
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
+  app.get("/api/energy", function(req, res) {
+    console.log(db);
+    db.filtered_data
+      .findAll({
+        where: {
+          Medicinal: {
+            [Op.regexp]: energyConditions
+          }
+        },
+        order: [["EdibilityRating", "DESC"]]
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
+
+  // Search by common name
+  app.get("/api/pain/:Commonname", function(req, res) {
+    db.filtered_data
+      .findOne({
+        where: {
+          Commonname: req.params.Commonname
+        }
+      })
+      .then(function(results) {
+        res.json(results);
+      });
+  });
 };

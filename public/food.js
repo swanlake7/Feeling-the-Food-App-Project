@@ -3,7 +3,6 @@ $(document).ready(function () {
   $("#signupForm").on("submit", signUpSubmit);
   //for logging in the user
   $("#loginForm").on("submit", logIn);
-
   // Get the login modal
   var modal = document.getElementById('id01');
   // When the user clicks anywhere outside of the modal, close it
@@ -13,6 +12,7 @@ $(document).ready(function () {
     }
   }
 
+<<<<<<< HEAD
   // Get the signup modal
   // var modalsu = document.getElementById('signupp');
   // When the user clicks anywhere outside of the modal, close it
@@ -22,6 +22,8 @@ $(document).ready(function () {
   //   }
   // }
 
+=======
+>>>>>>> 609e1da1220ffe0e5b9a194f3d053a383c5d0ee7
   function logIn() {
     event.preventDefault();
     var passw = $("#loginPw").val();
@@ -35,12 +37,12 @@ $(document).ready(function () {
   }
 
   function getUser(user) {
-    $.post('/login', user).then(success => {
+    $.post('/login', user).then(data => {
+      console.log(data);
       console.log("good to go!")
+      localStorage.setItem('token', data);
       window.location.replace("/home.html");
-    }).catch(err => {
-      window.location.replace("/");
-    });
+    })
   };
 
   function signUpSubmit(event) {
@@ -48,10 +50,7 @@ $(document).ready(function () {
     var email = $("#emailsu").val();
     var pw = $("#pwsu").val();
     var pwsec = $("#pwsusec").val();
-    // var check = $("#checksu").val();
 
-    console.log(email);
-    console.log(pw);
     if (pw !== pwsec) {
       alert("the passwords do not match");
       return;
@@ -67,8 +66,6 @@ $(document).ready(function () {
       'pw': `${pw}`
     };
     postUser(userinfo);
-    console.log(userinfo.email);
-    console.log(userinfo.pw);
   }
 
   //submit info 

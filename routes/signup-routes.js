@@ -1,4 +1,5 @@
 var db = require("../models");
+var jwt = require("jsonwebtoken");
 var bcrypt = require('bcryptjs');
 
 module.exports = function (app) {
@@ -18,7 +19,6 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         console.log('hit')
         var inputemail = req.body.email;
-        console.log(req.body);
         db.User.findOne({
             where: {
                 email: inputemail,
@@ -28,8 +28,11 @@ module.exports = function (app) {
                 res.status(401).end();
             } else {
                 bcrypt.compare(req.body.pw, user.pw, function (err, success) {
+                    if (err) { console.log(err) };
                     if (success === true) {
-                        res.json("Success");
+                        //add user id in payload
+                        var token = jwt.sign({ email: user.email }, process.env.JWT_KEY, { expiresIn: '1h' })
+                        res.json(token);
                     } else {
                         res.status(401).end();
                     }

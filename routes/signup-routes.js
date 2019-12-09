@@ -9,7 +9,7 @@ module.exports = function (app) {
                 pw: hash
             }).then(function (data) {
                 if (data) {
-                    res.redirect('/index');
+                    res.redirect('/index.html');
                 }
             })
         });
@@ -18,7 +18,6 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         console.log('hit')
         var inputemail = req.body.email;
-        console.log(req.body);
         db.User.findOne({
             where: {
                 email: inputemail,
